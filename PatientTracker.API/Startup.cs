@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PatientTracker.Business.Abstract;
 using PatientTracker.Business.Concrete;
+using PatientTracker.Business.LoggerService;
 using PatientTracker.DataAccess;
 using PatientTracker.DataAccess.Abstract;
 using PatientTracker.DataAccess.Concrete;
@@ -36,7 +37,7 @@ namespace PatientTracker.API
             services.AddScoped<IPatientService, PatientManager>();
             services.AddScoped<IPatientRepository, PatientRepository>();
             services.AddScoped<ISortHelper<Patient>, SortHelper<Patient>>();
-
+            services.AddScoped<ILoggerManager, LoggerManager>();
 
 
             services.AddDbContext<PatientDbContext>(options =>
